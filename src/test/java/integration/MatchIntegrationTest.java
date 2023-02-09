@@ -77,7 +77,7 @@ class MatchIntegrationTest {
     @Test
     void add_goal_in_match_with_id3_ko() throws Exception {
         String Id = "3";
-        String message = "400 BAD_REQUEST ABOUT PLAYER "+player7().getId();
+        String message = "Error 400: BAD_REQUEST ";
         assertThrowsExceptionMessage(message, ServletException.class,
                 ()->mockMvc.perform(post("/matches/"+Id+"/goals")
                                 .content(objectMapper.writeValueAsString(List.of(playerScorerMatchId3().toBuilder().player(player7()).build())))
